@@ -27,76 +27,121 @@ body{
 /* HERO */
 .hero{
   text-align:center;
-  padding:40px 15px;
+  padding:55px 15px;
 }
 .hero h1{
-  font-size:2.2rem;
+  font-size:2.5rem;
   color:#00e5ff;
 }
 .hero p{
-  margin:15px 0;
-  font-size:1.05rem;
+  margin:18px 0;
+  font-size:1.1rem;
+  line-height:1.6;
 }
 .date-time{
   color:#ffd54f;
-  font-size:1.15rem;
-  font-weight:600;
-  margin-bottom:22px;
-}
-
-/* CTA BUTTON */
-.cta-btn{
-  display:inline-block;
-  padding:16px 42px;
-  font-size:1.1rem;
+  font-size:1.2rem;
   font-weight:700;
-  color:#000;
-  background:linear-gradient(90deg,#00e5ff,#1de9b6);
-  border-radius:50px;
-  text-decoration:none;
-  box-shadow:0 0 25px rgba(0,229,255,.8);
-  animation:pulse 2s infinite;
+  margin-bottom:30px;
 }
-.cta-btn:hover{transform:scale(1.08);}
 
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(0,229,255,.7);}
-  70%{box-shadow:0 0 0 18px rgba(0,229,255,0);}
-  100%{box-shadow:0 0 0 0 rgba(0,229,255,0);}
+/* 🔥 PREMIUM CTA BUTTON */
+.cta-btn{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px 75px;
+  font-size:1.4rem;
+  font-weight:900;
+  color:#000;
+  text-decoration:none;
+  border-radius:70px;
+  background:linear-gradient(135deg,#1de9b6,#00e5ff);
+  overflow:hidden;
+  box-shadow:0 0 40px rgba(0,229,255,.95);
+  animation:bounce 2.6s infinite;
+  transition:transform .3s ease;
+}
+
+.cta-btn:hover{
+  transform:scale(1.15);
+}
+
+/* ✨ SHINING MOVING LINE */
+.cta-btn::before{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:-120%;
+  width:60%;
+  height:200%;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.9),
+    transparent
+  );
+  transform:rotate(25deg);
+  animation:shineMove 2.2s infinite;
+}
+
+/* 🔥 GLOW BORDER */
+.cta-btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:70px;
+  border:2px solid rgba(255,255,255,.6);
+  animation:borderGlow 1.6s infinite alternate;
+}
+
+/* Animations */
+@keyframes shineMove{
+  0%{left:-120%;}
+  100%{left:120%;}
+}
+
+@keyframes borderGlow{
+  from{opacity:.3;}
+  to{opacity:1;}
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
 }
 
 /* SECTION */
 .section{
-  margin:60px 0;
+  margin:70px 0;
 }
 .section h2{
   text-align:center;
-  margin-bottom:30px;
+  margin-bottom:35px;
   color:#00e5ff;
 }
 
-/* NEW WHAT YOU WILL LEARN */
+/* WHAT YOU WILL LEARN */
 .learn-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
+  gap:24px;
 }
 
 .learn-card{
-  background:linear-gradient(145deg,rgba(255,255,255,.15),rgba(255,255,255,.05));
-  padding:25px;
-  border-radius:20px;
-  position:relative;
-  overflow:hidden;
+  background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.05));
+  padding:26px;
+  border-radius:22px;
 }
 
 .learn-card span{
-  font-size:2rem;
+  font-size:2.2rem;
 }
 
 .learn-card h3{
-  margin:12px 0 8px;
-  font-size:1.1rem;
+  margin:14px 0 8px;
+  font-size:1.15rem;
   color:#1de9b6;
 }
 
@@ -109,7 +154,7 @@ body{
 .videos{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:28px;
+  gap:30px;
   justify-items:center;
 }
 
@@ -120,8 +165,8 @@ body{
   background:#000;
   border-radius:22px;
   overflow:hidden;
-  border:2px solid rgba(0,229,255,.5);
-  box-shadow:0 12px 35px rgba(0,0,0,.6);
+  border:2px solid rgba(0,229,255,.6);
+  box-shadow:0 15px 40px rgba(0,0,0,.7);
 }
 
 .short-card iframe{
@@ -134,30 +179,33 @@ body{
 .requirements li{
   list-style:none;
   background:rgba(255,255,255,.1);
-  padding:12px;
-  margin:10px 0;
-  border-radius:12px;
+  padding:14px;
+  margin:12px 0;
+  border-radius:14px;
 }
 
 /* CONTACT */
 .contact{
   text-align:center;
-  margin-top:40px;
+  margin-top:50px;
 }
-.contact p{margin:8px 0;}
+.contact p{margin:10px 0;}
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:20px;
+  padding:22px;
   font-size:.9rem;
   opacity:.8;
 }
 
 /* MOBILE */
 @media(max-width:480px){
-  .hero h1{font-size:1.8rem;}
-  .cta-btn{padding:14px 34px;font-size:1rem;}
+  .hero h1{font-size:2rem;}
+  .cta-btn{
+    padding:22px 50px;
+    font-size:1.15rem;
+  }
 }
 </style>
 </head>
@@ -170,13 +218,22 @@ footer{
 <div class="hero">
   <h1>AI VIDEO MASTER CLASS</h1>
   <p>
-    Learn professional AI video creation using powerful AI tools.
-    We will teach <strong>prompt writing</strong>, AI tools, and complete
+    Learn professional AI video creation using powerful AI tools.<br>
+    We will teach <strong>prompt writing</strong>, AI tools, and a complete
     step-by-step process to create viral short videos.
   </p>
-  <div class="date-time">This Sunday, 1st March | 6:00 PM - 8:00 PM | 2 Hours Live</div>
-  <a href="https://rzp.io/rzp/ai-video" class="cta-btn">🎟️ Reserve Your Seat Now</a>
-  <p style="margin-top:12px;color:#ffd54f;">⚡ Limited Seats | Registration Closing Soon</p>
+
+  <div class="date-time">
+    This Sunday, 1st March | 6:00 PM – 8:00 PM | 2 Hours Live
+  </div>
+
+  <a href="https://rzp.io/rzp/ai-video" class="cta-btn">
+    🎟️ RESERVE YOUR SEAT NOW
+  </a>
+
+  <p style="margin-top:16px;color:#ffd54f;font-weight:700;">
+    ⏳ Limited Seats | Registration Closing Soon
+  </p>
 </div>
 
 <!-- WHAT YOU WILL LEARN -->
@@ -187,25 +244,25 @@ footer{
   <div class="learn-card">
     <span>✍️</span>
     <h3>Prompt Writing Mastery</h3>
-    <p>How to write effective prompts for AI videos from beginner to advanced level.</p>
+    <p>Write powerful prompts for AI videos from beginner to advanced level.</p>
   </div>
 
   <div class="learn-card">
     <span>🛠️</span>
     <h3>Best AI Video Tools</h3>
-    <p>Complete walkthrough of top AI video creation tools and their real use cases.</p>
+    <p>Hands-on walkthrough of top AI tools with real examples.</p>
   </div>
 
   <div class="learn-card">
     <span>🎬</span>
-    <h3>Step-by-Step Video Creation Process</h3>
-    <p>A beginner-friendly, step-by-step guide to create AI videos from scratch using simple tools.</p>
+    <h3>Step-by-Step Video Creation</h3>
+    <p>Create AI videos from scratch using a simple, repeatable system.</p>
   </div>
 
   <div class="learn-card">
     <span>🚀</span>
-    <h3>High-Quality & Engaging Video Strategies</h3>
-    <p>Learn easy methods to create attractive and engaging AI videos, even if you are a beginner.</p>
+    <h3>High-Quality & Engaging Strategies</h3>
+    <p>Make videos that look professional and grab attention instantly.</p>
   </div>
 
 </div>
@@ -213,7 +270,7 @@ footer{
 
 <!-- AI VIDEO DEMO -->
 <div class="section">
-<h2>AI Video Demo </h2>
+<h2>AI Video Demo</h2>
 <div class="videos">
   <div class="short-card"><iframe src="https://www.youtube.com/embed/XdZpLFkZ1l4"></iframe></div>
   <div class="short-card"><iframe src="https://www.youtube.com/embed/DR89XUF5IEA"></iframe></div>
@@ -222,9 +279,9 @@ footer{
 </div>
 </div>
 
-<!-- ZOOM -->
+<!-- REQUIREMENTS -->
 <div class="section requirements">
-<h2>Live Session Requirements </h2>
+<h2>Live Session Requirements</h2>
 <ul>
   <li>Stable Internet Connection</li>
   <li>Mobile or Laptop with Camera & Mic</li>
@@ -234,10 +291,12 @@ footer{
 </div>
 
 <!-- BOOK -->
-<div class="section" id="book" style="text-align:center;">
+<div class="section" style="text-align:center;">
 <h2>Book Your Slot Now</h2>
 <p>Join live & start creating AI videos confidently.</p><br>
-<a href="https://rzp.io/rzp/ai-video" class="cta-btn">🚀 Book Slot Now</a>
+<a href="https://rzp.io/rzp/ai-video" class="cta-btn">
+  🚀 BOOK SLOT NOW
+</a>
 </div>
 
 <!-- CONTACT -->
@@ -254,5 +313,4 @@ footer{
 </footer>
 
 </body>
-
 </html>
